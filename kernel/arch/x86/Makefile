@@ -17,15 +17,15 @@ vos.bin: boot/bootsect.bin kernel.bin
 	cat $^ > ../../vos.bin
 
 kernel.bin: boot/kernel_entry.o ${OBJ}
-	ld -m elf_i386 -o $@ -T linker.ld $^ --oformat binary
+	ld -m elf_i386 -o $@ -Ttext 0x1000 $^ --oformat binary
 
 kernel.elf: boot/kernel_entry.o ${OBJ}
-	ld -m elf_i386 -o $@ -Ttext 0x1000 $^ 
+	ld -m elf_i386 -o $@ -T linker.ld $^ 
 
 run: vos.bin
 # 	qemu-system-i386 -fda vos.bin
 
-run: boot/boot.o kernel.bin
+#run: boot/boot.o kernel.bin
 
 debug: os-image.bin kernel.elf
 	qemu-system-i386 -s -fda os-image.bin -d guest_errors,int &
