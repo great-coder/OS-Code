@@ -16,12 +16,16 @@
  * other cases.
  */
 static inline void outb(u16 port, u8 val);
+static inline void outw(u16 port, u16 val);
+static inline void outd(u16 port, u32 val);
 
 /*
  * Receives a 8/16/32-bit value from an I/O location. Traditional names are inb,
  * inw and inl respectively.
  */
 static inline u8 inb(u16 port);
+static inline u16 inw(u16 port);
+static inline u32 ind(u16 port);
 
 /*
  * Forces the CPU to wait for an I/O operation to complete. only use this when

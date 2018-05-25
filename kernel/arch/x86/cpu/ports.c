@@ -23,6 +23,20 @@ static inline void outb(u16 port, u8 val)
      */
 }
 
+static inline void outw(u16 port, u16 val)
+{
+    asm volatile("out %%ax, %%dx"
+                 :
+                 : "a"(val), "d"(port));
+}
+
+static inline void outd(u16 port, u32 val)
+{
+    asm volatile("outl %%eax, %%dx"
+                 :
+                 : "d"(port), "a"(val));
+}
+
 // INx
 static inline u8 inb(u16 port)
 {
@@ -30,6 +44,24 @@ static inline u8 inb(u16 port)
     asm volatile("inb %1, %0"
                  : "=a"(ret)
                  : "Nd"(port));
+    return ret;
+}
+
+static inline u16 inw(u16 port)
+{
+    u16 ret;
+    asm("in %%dx, %%ax"
+        : "=a"(ret)
+        : "d"(port));
+    return ret;
+}
+
+static inline u32 ind(u16 port)
+{
+    u32 ret;
+    asm volatile("inl %%dx, %%eax"
+                 : "=a"(ret)
+                 : "d"(port));
     return ret;
 }
 
