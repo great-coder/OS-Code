@@ -4,7 +4,7 @@
 # https://opensource.org/licenses/MIT
 
 INC_DIR = ../include
-HEADERS = $(wildcard $(INC_DIR)/memory/*.h $(INC_DIR)/kernel/*.h $(INC_DIR)/system/*.h)
+HEADERS = $(wildcard $(INC_DIR)/*.h $(INC_DIR)/memory/*.h $(INC_DIR)/kernel/*.h $(INC_DIR)/system/*.h $(INC_DIR)/drivers/*.h $(INC_DIR)/cpu/*.h)
 C_SOURCES = $(wildcard *.c memory/*.c system/*.c)
 
 CFLAGS = -g -ffreestanding -Wall -I$(INC_DIR) -Wextra -fno-exceptions -m32
