@@ -6,10 +6,7 @@
 #ifndef X86_TYPE_H
 #define X86_TYPE_H
 
-#include "include/type.h"
-
-#define low_16(address) (u16)((address)&0xFFFF)
-#define high_16(address) (u16)(((address) >> 16) & 0xFFFF)
+#include "../../include/type.h"
 
 typedef struct
 {
