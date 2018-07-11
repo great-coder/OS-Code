@@ -10,8 +10,8 @@
  * Writen by Mohammad Dehghan
  */
 
-#include "kernel/terminal.h"
 #include "string.h"
+#include "kernel/terminal.h"
 
 static inline u8 vga_entry_color(enum vga_color fg, enum vga_color bg)
 {
