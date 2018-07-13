@@ -16,13 +16,6 @@ typedef struct
     u32 eip, cs, eflags, esp, ss;
 } registers_t;
 
-// This works in 32 and 64 bit mode
-typedef struct
-{
-    u16 limit;
-    void* base;
-} __attribute__((packed)) idt_register_t;
-
 typedef struct
 {
     u16 low_offset;

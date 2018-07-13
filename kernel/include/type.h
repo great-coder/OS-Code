@@ -38,4 +38,11 @@ enum
     RETURN_FAILURE = -128
 };
 
+// This works in 32 and 64 bit mode
+typedef struct
+{
+    u16 limit;
+    void *base;
+} __attribute__((packed)) idt_register_t;
+
 #endif
