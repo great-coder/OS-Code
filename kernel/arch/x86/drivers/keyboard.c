@@ -7,8 +7,7 @@
 
 #include "drivers/keyboard.h"
 #include "cpu/ports.h"
-// #include "../cpu/isr.h"
-#include "cpu/int.h"
+#include "cpu/idt.h"
 #include "drivers/screen.h"
 #include "string.h"
 #include "system/function.h"
@@ -70,6 +69,5 @@ static void keyboard_callback(registers_t *regs)
 void init_keyboard()
 {
     mprint("Keyboard init sequence activated ...\n");
-    // register_interrupt_handler(IRQ1, keyboard_callback);
-    // lidt(keyboard_callback, IRQ1);
+    register_interrupt_handler(IRQ1, keyboard_callback);
 }
