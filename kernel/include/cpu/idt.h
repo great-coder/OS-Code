@@ -3,8 +3,8 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-#ifndef CPU_INT_H
-#define CPU_INT_H
+#ifndef CPU_IDT_H
+#define CPU_IDT_H
 
 #include "type.h"
 
