@@ -12,9 +12,9 @@ help:
 	@echo "Currently supported platforms:"
 	@echo $(PLATFORMS)
 	@echo "Usage: make [ vos | clean | help ] "
-	@echo "  vos command will compile files and an output file (like iso, bin, ...)"
+	@echo "  vos command will compile files and make an output file (like iso, bin, ...)"
 	@echo "  clean command will delete all generated files during compile"
-	@echo "You can change target architecture by changing the ARCH value in kernel/Makfile"
+	@echo "You can change target architecture by changing the ARCH value in kernel/Makfile, default is x86 platform"
 	@echo
 
 vos:
