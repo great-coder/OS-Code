@@ -15,7 +15,7 @@ idt_descriptor_t idt[IDT_ENTRIES];
 idt_register_t idt_reg;
 
 // Enabled?
-static inline u8 are_interrupts_enabled()
+u8 are_interrupts_enabled()
 {
     unsigned long flags;
     asm volatile("pushf\n\t"
@@ -34,7 +34,7 @@ void set_idt_gate(u8 i, u32 callback)
 }
 
 // LIDT
-static inline void lidt()
+void lidt()
 {
     // This function works in 32 and 64bit mode
     idt_reg.base = (u32)&idt; // For 64bit change this to u64

@@ -8,7 +8,7 @@
 #include "memory/mem.h"
 
 // FAR_PEEKx
-static inline u32 farpeekl(u16 sel, void *off)
+u32 farpeekl(u16 sel, void *off)
 {
     u32 ret;
     asm("push %%fs\n\t"
@@ -21,7 +21,7 @@ static inline u32 farpeekl(u16 sel, void *off)
 }
 
 // FAR_POKEx
-static inline void farpokeb(u16 sel, void *off, u8 v)
+void farpokeb(u16 sel, void *off, u8 v)
 {
     asm("push %%fs\n\t"
         "mov  %0, %%fs\n\t"

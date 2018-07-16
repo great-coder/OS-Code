@@ -8,7 +8,7 @@
 #include "cpu/ports.h"
 
 // OUTx
-static inline void outb(u16 port, u8 val)
+void outb(u16 port, u8 val)
 {
     asm volatile("outb %0, %1"
                  :
@@ -23,14 +23,14 @@ static inline void outb(u16 port, u8 val)
      */
 }
 
-static inline void outw(u16 port, u16 val)
+void outw(u16 port, u16 val)
 {
     asm volatile("out %%ax, %%dx"
                  :
                  : "a"(val), "d"(port));
 }
 
-static inline void outd(u16 port, u32 val)
+void outd(u16 port, u32 val)
 {
     asm volatile("outl %%eax, %%dx"
                  :
@@ -38,7 +38,7 @@ static inline void outd(u16 port, u32 val)
 }
 
 // INx
-static inline u8 inb(u16 port)
+u8 inb(u16 port)
 {
     u16 ret;
     asm volatile("inb %1, %0"
@@ -47,7 +47,7 @@ static inline u8 inb(u16 port)
     return ret;
 }
 
-static inline u16 inw(u16 port)
+u16 inw(u16 port)
 {
     u16 ret;
     asm("in %%dx, %%ax"
@@ -56,7 +56,7 @@ static inline u16 inw(u16 port)
     return ret;
 }
 
-static inline u32 ind(u16 port)
+u32 ind(u16 port)
 {
     u32 ret;
     asm volatile("inl %%dx, %%eax"
@@ -66,7 +66,7 @@ static inline u32 ind(u16 port)
 }
 
 // IO_WAIT
-static inline void io_wait(void)
+void io_wait(void)
 {
     /* Port 0x80 is used for 'checkpoints' during POST. */
     /* The Linux kernel seems to think it is free for use :-/ */

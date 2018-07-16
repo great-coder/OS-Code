@@ -12,7 +12,7 @@
  * TODO: GCC has a <cpuid.h> header you should use instead of this.
  * It has already included in cpu.h
  */
-static inline void cpuid(int code, u32 *a, u32 *d)
+void cpuid(int code, u32 *a, u32 *d)
 {
     asm volatile("cpuid"
                  : "=a"(*a), "=d"(*d)
@@ -26,7 +26,7 @@ static inline void cpuid(int code, u32 *a, u32 *d)
  * functions, very useful for testing/benchmarking /etc. Note: This is
  * only an approximation.
  */
-static inline u64 rdtsc()
+u64 rdtsc()
 {
     u64 ret;
     asm volatile("rdtsc"
@@ -35,7 +35,7 @@ static inline u64 rdtsc()
 }
 
 // READ_CRx
-static inline unsigned long read_cr0(void)
+unsigned long read_cr0(void)
 {
     unsigned long val;
     asm volatile("mov %%cr0, %0"
@@ -44,7 +44,7 @@ static inline unsigned long read_cr0(void)
 }
 
 // INVLPG
-static inline void invlpg(void *m)
+void invlpg(void *m)
 {
     /*
      * Clobber memory to avoid optimizer re-ordering access before invlpg,
@@ -57,7 +57,7 @@ static inline void invlpg(void *m)
 }
 
 // WRMSR
-inline void wrmsr(u32 msr_id, u64 msr_value)
+void wrmsr(u32 msr_id, u64 msr_value)
 {
     asm volatile("wrmsr"
                  :
@@ -65,7 +65,7 @@ inline void wrmsr(u32 msr_id, u64 msr_value)
 }
 
 // RDMSR
-inline u64 rdmsr(u32 msr_id)
+u64 rdmsr(u32 msr_id)
 {
     u64 msr_value;
     asm volatile("rdmsr"

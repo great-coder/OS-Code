@@ -13,12 +13,12 @@
 #include "string.h"
 #include "kernel/terminal.h"
 
-static inline u8 vga_entry_color(enum vga_color fg, enum vga_color bg)
+u8 vga_entry_color(enum vga_color fg, enum vga_color bg)
 {
     return fg | bg << 4;
 }
 
-static inline u16 vga_entry(unsigned char uc, u8 color)
+u16 vga_entry(unsigned char uc, u8 color)
 {
     return (u16)uc | (u16)color << 8;
 }

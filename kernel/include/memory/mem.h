@@ -14,13 +14,13 @@
  * manipulating segment registers directly, so issuing the mov <reg>, <segmentreg>
  * manually is required.
  */
-static inline u32 farpeekl(u16 sel, void *off);
+u32 farpeekl(u16 sel, void *off);
 
 /*
  * Write a 8/16/32-bit value to a segment:offset address too. Note that much
  * like in farpeek, this version of farpoke saves and restore the segment register
  * used for the access.
  */
-static inline void farpokeb(u16 sel, void *off, u8 v);
+void farpokeb(u16 sel, void *off, u8 v);
 
 #endif

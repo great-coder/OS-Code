@@ -12,7 +12,7 @@
 /*
  * Request for CPU identification
  */
-static inline void cpuid(int code, u32 *a, u32 *d);
+void cpuid(int code, u32 *a, u32 *d);
 
 /*
  * Read the current value of the CPU's time-stamp counter and store
@@ -20,12 +20,12 @@ static inline void cpuid(int code, u32 *a, u32 *d);
  * ticks that have elapsed since the last CPU reset. The value is stored
  * in a 64-bit MSR and is incremented after each clock cycle.
  */
-static inline u64 rdtsc();
+u64 rdtsc();
 
 /*
  * Read the value in a control register
  */
-static inline unsigned long read_cr0(void);
+unsigned long read_cr0(void);
 
 /*
  * Invalidates the TLB (Translation Lookaside Buffer) for one specific
@@ -34,18 +34,18 @@ static inline unsigned long read_cr0(void);
  * update one of those tables. The m pointer points to a logical address,
  * not a physical or virtual one: an offset for your ds segment.
  */
-static inline void invlpg(void *m);
+void invlpg(void *m);
 
 /*
  * Write a 64-bit value to a MSR. The A constraint stands for concatenation
  * of registers EAX and EDX.
  */
-inline void wrmsr(u32 msr_id, u64 msr_value);
+void wrmsr(u32 msr_id, u64 msr_value);
 
 /*
  * Read a 64-bit value from a MSR. The A constraint stands for concatenation
  * of registers EAX and EDX.
  */
-inline u64 rdmsr(u32 msr_id);
+u64 rdmsr(u32 msr_id);
 
 #endif
