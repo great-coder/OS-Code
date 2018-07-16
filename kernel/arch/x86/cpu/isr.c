@@ -5,6 +5,7 @@
  * https://opensource.org/licenses/MIT
  */
 
+#include "../type.h"
 #include "cpu/isr.h"
 #include "cpu/idt.h"
 #include "drivers/keyboard.h"
@@ -12,7 +13,6 @@
 #include "string.h"
 #include "cpu/timer.h"
 #include "cpu/ports.h"
-#include "../type.h"
 
 isr_t interrupt_handlers[256];
 
