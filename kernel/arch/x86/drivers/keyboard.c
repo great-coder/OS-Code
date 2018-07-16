@@ -5,6 +5,7 @@
  * https://opensource.org/licenses/MIT
  */
 
+#include "../type.h"
 #include "drivers/keyboard.h"
 #include "cpu/ports.h"
 #include "cpu/idt.h"
@@ -12,7 +13,6 @@
 #include "string.h"
 #include "system/function.h"
 #include "kernel/terminal.h"
-#include "../type.h"
 
 MODULE("KEY");
 
@@ -54,7 +54,8 @@ static void keyboard_callback(registers_t *regs)
     else if ((key - 1) == ENTER)
     {
         kprint("\n");
-        __cmdline__(key_buffer);
+        // __cmdline__(key_buffer);
+        terminal_writestring(key_buffer);
         key_buffer[0] = '\0';
     }
     else
