@@ -40,11 +40,11 @@ enum RESPONSE
     ACKNOWLEDGE = 0xFA,
     RESEND = 0xFE,
     KEY_ERROR = 0x00,
-    KEY_ERROR = 0xFF,
+    KEY_ERROR_2 = 0xFF,
     SELF_TEST_PASSED = 0xAA,
     ECHO_RESPONSE = 0xEE,
     SELF_TEST_FAILED = 0xFC,
-    SELF_TEST_FAILED = 0xFD
+    SELF_TEST_FAILED_2 = 0xFD
 };
 
 static char key_buffer[KEYBOARD_BUFFER_SIZE];
