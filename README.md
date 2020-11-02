@@ -3,7 +3,7 @@ https://great-coder.github.io/os/index.html
 
 ## Compile
 ### Prerequesties
-To compile the source code, you need to install a c/c++ cross compiler, nasm (Netwide assembler) and qemu (or a VM).    
+To compile the source code, you need to install a c/c++ cross compiler (or you can use Ubuntu 16.04 LTS which has cross compiler), nasm (Netwide assembler) and qemu (or a VM).    
     
 After installing the prerequesties, in the main directory, type `make vos`. (You can type `make help` to get info and help)
 
